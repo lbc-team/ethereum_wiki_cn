@@ -1,0 +1,13 @@
+{{ $class := "md-tabs md-tabs--active" }} 
+
+<nav class="{{ $class }}" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+{{ range $index, $nav := $.Site.Menus.docs.ByWeight }}
+    {{$.Scratch.Set "nav_level" 1}}
+    {{$.Scratch.Set "nav" $nav}} 
+    {{partial "tab_item" $}}
+{{end}}    
+    </ul>
+  </div>
+</nav>

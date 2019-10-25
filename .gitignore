@@ -1,0 +1,10 @@
+/public
+/dev
+/.grunt
+/node_modules
+
+.DS_Store
+
+# tmp file
+/data/commits.yaml
+/resources

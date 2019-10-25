@@ -1,0 +1,66 @@
+<article class="md-content__inner md-typeset post bg-write">
+    {{ with $.Page.File }}
+    <a href="https://github.com/{{$.Site.Params.repo_name}}/edit/master/content/{{.Path}}" title="" class="md-icon md-content__icon">&#xE3C9;</a>
+    {{end}}
+    <header class="post-header">
+        <h1 class="post-title">
+            <a class="post-link" href="{{.URL}}">
+                {{ .Title }} {{ if .Draft }} (Draft){{ end }}
+            </a></h1>
+        <div class="post-meta">
+            <span class="post-time">更新时间：{{.Lastmod.Format "2006-01-02 15:04:05"}}</span>
+        </div>
+    </header>
+    {{ (replace .Content "<div class=\"highlight\"" "<div class=\"codehilite\"") | safeHTML }}
+    {{if not .IsHome}}
+    <!-- 列表页显示 -->
+    <div>
+        {{if .Data.Pages}}
+        <ul>
+            {{ range .Data.Pages }}
+                <li>
+                    <a href="{{.Permalink}}"> {{.Title}}</a>
+                </li>
+            {{ end }}
+         </ul>
+         {{end}}
+    </div>
+    {{end}}
+    <div class="footcommits">
+        <hr>
+        <ol>
+                <li>
+
+                        {{ $repo_type := $.Scratch.Get "platfrom" }}
+                                    最后更新时间：{{.Lastmod.Format "2006-01-02 15:04:05"}}，这是一篇任何人都可以协作参与的文章，
+                                    <a href="https://{{$repo_type}}.com/{{.Site.Params.repo_name}}/issues"  rel="nofollow">
+                                        点击反馈问题</a>。
+                            </li>
+            {{with .Site.Data.commits}}
+            {{range index . (print "./content/" $.Page.File.Path) }}
+            <li>
+                <span title="提交时间">{{dateFormat "2006-01-02" .date}}</span>
+                <span >
+                        {{if index $.Site.Data.contributor .email}}
+                            {{with index $.Site.Data.contributor .email }}
+                                <a href="{{.site}}" title="提交人" rel="nofollow">{{.name}}</a>
+                            {{end}}
+                        {{else}}
+                            {{.email}}
+                        {{end}}
+                </span>
+                <span>提交修改-<a href="{{$.Site.Params.repo_url}}/commit/{{.hash}}"   rel="nofollow">Commit:{{substr .hash 0 7}}</a></span>
+                <span>->{{.message}}</span>
+            </li>
+            {{end}}
+           {{end}}
+        </ol>
+        <blockquote>
+            <p>
+            </p>
+        </blockquote>
+    </div>
+    {{if $.Site.Params.theme.future.disqus }}
+    <h2 id="__comments">comments</h2>
+    {{end}}
+</article>

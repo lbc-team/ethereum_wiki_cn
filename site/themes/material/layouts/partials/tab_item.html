@@ -1,0 +1,29 @@
+{{ $nav_item := .Scratch.Get "nav" }}
+{{ $level := .Scratch.Get "nav_level"}}
+{{ $path := .Scratch.Get "nav_path"}}
+{{  $class := "md-nav__item" }}
+{{ $isCurrent :=  or ($.IsMenuCurrent "main"  $nav_item) ( $.HasMenuCurrent "main" $nav_item) }}
+{{ $isHomePage := eq $.Site.BaseURL ($nav_item.URL | absURL | printf "%s")}}
+{{if $isCurrent}}
+  {{ $class := "md-nav__item md-nav__item--active" }}
+{{end}}
+
+{{with $nav_item}}
+{{ if $isHomePage}}
+  <li class="md-tabs__item">
+      <a href="{{ .URL }}" title="{{ .Name }}" class="md-tabs__link md-tabs__link--active">
+        {{ .Name }}
+      </a>
+  </li>
+{{else}}
+    <li class="md-tabs__item">
+        {{if .URL}}
+        <a href="{{ .URL }}" title="{{ .Name }}" class="md-tabs__link  {{if $isCurrent}}md-tabs__link--active{{end}}">
+          {{ .Name }}
+        </a>
+        {{else}}
+         <span style="color: hsla(0,0%,100%,.3);">{{ .Name }}</span>
+        {{end}}
+    </li>
+{{end}}
+{{end}}

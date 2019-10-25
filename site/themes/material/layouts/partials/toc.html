@@ -1,0 +1,59 @@
+
+<!-- ignore empty links with + -->
+{{ $headers := findRE "<h[1-6].*?>(.|\n])+?</h[1-6]>" .Content }}
+<!-- at least one header to link to -->
+{{ $has_headers := ge (len $headers) 1 }} 
+{{ if $has_headers  }}
+<nav class="md-nav md-nav--secondary">
+  <!-- TOC header -->
+  <h4 class="md-nav__title" for="toc">目录</h4>
+  <ul class="md-nav__list" data-md-scrollfix> 
+    {{ range $i, $header := $headers }}
+      {{ $headerLevel := index (findRE "[1-4]" . 1) 0 }}
+      {{ $headerLevel := len (seq $headerLevel) }}
+ 
+      {{$anchorID :=  (trim  (index (findRE "\"(?P<id2>.*)\"" $header 1) 0) "\"")  }}
+      {{ if ne $i 0 }}
+        {{ $prevHeaderLevel := index (findRE "[1-4]" (index $headers (sub $i 1)) 1) 0 }}
+        {{ $prevHeaderLevel := len (seq $prevHeaderLevel) }}
+
+          {{ if gt $headerLevel $prevHeaderLevel }}
+            {{ range seq (sub $headerLevel $prevHeaderLevel) }}
+            <nav class="md-nav">
+                    <ul class="md-nav__list">
+            {{end}}
+          {{end}}
+
+          {{ if lt $headerLevel $prevHeaderLevel }}
+            {{ range seq (sub $prevHeaderLevel $headerLevel) }}
+              </li></ul></nav></li>
+            {{end}}
+          {{end}}
+
+          {{ if eq $headerLevel $prevHeaderLevel }}
+            </li>
+          {{end}}
+
+          <li class="md-nav__item">   
+            <a  href="#{{ $anchorID}}" class="md-nav__link">{{ $header | plainify | htmlEscape }}</a>
+
+          {{ if eq $i (sub (len $headers) 1) }}
+            {{ range seq (sub $prevHeaderLevel $headerLevel) }}
+              </li></ul></nav></li>
+            {{end}}
+          {{end}}
+      {{else}}
+      <li class="md-nav__item">  
+        <a   href="#{{ $anchorID }}" class="md-nav__link">{{ $header | plainify | htmlEscape }}</a>
+      {{end}}
+    {{end}}
+
+    {{ $firstHeaderLevel := len (seq (index (findRE "[1-4]" (index $headers 0) 1) 0)) }}
+    {{ $lastHeaderLevel := len (seq (index (findRE "[1-4]" (index $headers (sub (len $headers) 1)) 1) 0)) }}
+    {{ range seq (sub $lastHeaderLevel $firstHeaderLevel) }}
+      </li></ul></li>
+    {{end}}
+
+  </ul>
+</nav>
+{{end}}

@@ -1,0 +1,126 @@
+<!--  global variable -->
+{{ $platform := $.Site.Params.repo_url}}
+{{if in $platform "github" }}
+  {{ $.Scratch.Add "platfrom" "github" }}
+{{else if in $platform "gitlab" }}
+  {{ $.Scratch.Add "platfrom" "gitlab" }}
+{{else if in $platform "bitbucket" }}
+  {{ $.Scratch.Add "platfrom" "bitbucket" }}
+{{else if in $platform "gitee" }}
+{{ $.Scratch.Add "platfrom" "gitee" }}
+{{end}}
+
+<!DOCTYPE html>
+  <!--[if lt IE 7 ]><html class="no-js ie6"><![endif]-->
+  <!--[if IE 7 ]><html class="no-js ie7"><![endif]-->
+  <!--[if IE 8 ]><html class="no-js ie8"><![endif]-->
+  <!--[if IE 9 ]><html class="no-js ie9"><![endif]-->
+  <!--[if (gt IE 9)|!(IE)]><!--> <html class="no-js" lang="{{ or .Site.LanguageCode "en"}}"> <!--<![endif]-->
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>{{ .Title }}{{ if not .IsHome }} - {{ .Site.Title }}{{ end }}</title>
+    {{ if .Description }}
+<meta name="description" content="{{ .Description }}">
+{{else }}
+<meta name="description" content="{{ .Site.Params.description }}">
+{{end}}
+    <link rel="canonical" href="{{ .Permalink }}">
+    {{ with .Site.Params.author }}
+    <meta name="author" content="{{ . }}">
+    {{ end }}
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="renderer" content="webkit"><!-- Set render engine for 360 browser -->
+  <meta name="applicable-device" content="pc,mobile">
+  <meta name="MobileOptimized" content="width"/>
+  <meta name="HandheldFriendly" content="true"/>
+  <meta name="mobile-web-app-capable" content="yes"> <!-- Add to homescreen for Chrome on Android -->
+  <link rel="icon" sizes="32x32" href="/images/favicon.ico">
+  <meta name="apple-mobile-web-app-capable" content="yes"> <!-- Add to homescreen for Safari on iOS -->
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="{{.Site.Title}}"/>
+  <link rel="apple-touch-icon-precomposed" href="/images/app-icon64x64.png">
+  <meta name="msapplication-TileImage" content="/images/app-icon128x128.png"> <!-- Tile icon for Win8 (144x144 + tile color) -->
+  <meta name="msapplication-TileColor" content="#0e90d2">
+
+
+    <meta property="og:url" content="{{ .Permalink }}">
+    {{ with .Site.Title }}<meta property="og:title" content="{{ . }}">{{ end }}
+    {{ with .Site.Params.logo }}<meta property="og:image" content="{{ . | absURL }}">{{ end }}
+    {{ with .Site.Title }}<meta name="apple-mobile-web-app-title" content="{{ . }}">{{ end }}
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <meta name="lang:clipboard.copy" content="Copy to clipboard">
+
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+
+        <meta name="lang:search.language" content="en">
+
+        <meta name="lang:search.result.none" content="No matching documents">
+
+        <meta name="lang:search.result.one" content="1 matching document">
+
+        <meta name="lang:search.result.other" content="# matching documents">
+
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+
+    <link rel="shortcut icon" type="image/x-icon" href="{{ with .Site.Params.favicon }}{{ . | absURL }}{{ else }}{{ "images/favicon.ico" | absURL }}{{ end }}">
+    <link rel="icon" type="image/x-icon" href="{{ with .Site.Params.favicon }}{{ . | absURL }}{{ else }}{{ "images/favicon.ico" | absURL }}{{ end }}">
+
+    <style>
+      @font-face {
+        font-family: 'Icon';
+        src: url('{{ "fonts/icon.eot?52m981" | absURL }}');
+        src: url('{{ "fonts/icon.eot?#iefix52m981" | absURL }}')
+               format('embedded-opentype'),
+             url('{{ "fonts/icon.woff?52m981" | absURL }}')
+               format('woff'),
+             url('{{ "fonts/icon.ttf?52m981" | absURL }}')
+               format('truetype'),
+             url('{{ "fonts/icon.svg?52m981#icon" | absURL }}')
+               format('svg');
+        font-weight: normal;
+        font-style: normal;
+      }
+    </style>
+
+    <link rel="stylesheet" href="{{ "stylesheets/application.css" | absURL }}">
+    <link rel="stylesheet" href="{{ "stylesheets/palette.css" | absURL }}">
+    <!-- <link rel="stylesheet" href="{{ with .Site.Params.highlight_css }}{{ . | absURL }}{{ else }}{{ "stylesheets/highlight/highlight.css" | absURL }}{{ end }}"> -->
+
+    {{/* set default values if no custom ones are defined */}}
+    {{ $text := or .Site.Params.font.text "Roboto" }}
+    {{ $code := or .Site.Params.font.code "Roboto Mono" }}
+    {{if .Site.Params.font.useimage}}
+      <link rel="stylesheet" href="//fonts.cat.net/css?family={{ $text }}:400,700|{{ replace  $code " " "+" | safeURL }}">
+    {{else}}
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family={{ $text }}:400,700|{{ replace  $code " " "+" | safeURL }}">
+    {{end}}
+    <style>
+      body, input {
+        font-family: {{ $text }}, Helvetica, Arial, sans-serif;
+      }
+      pre, code {
+        font-family: {{ $code }}, 'Courier New', 'Courier', monospace;
+      }
+    </style>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    {{ range .Site.Params.custom_css }}
+    <link rel="stylesheet" href="{{ . | absURL }}">
+    {{ end }}
+    <script src="{{ "javascripts/modernizr.js" | absURL }}"></script>
+
+    {{ with .OutputFormats.Get "RSS" }}
+    <link href="{{ .RelPermalink }}" rel="alternate" type="application/rss+xml" title="{{ $.Site.Title }}" />
+    <link href="{{ .RelPermalink }}" rel="feed" type="application/rss+xml" title="{{ $.Site.Title }}" />
+    {{ end }}
+
+  </head>
+  {{if or .Site.Params.palette.primary .Site.Params.palette.accent }}
+  <body dir="{{or .Site.Params.direction "ltr"}}" data-md-color-primary="{{or .Site.Params.palette.primary "indigo"}}"  data-md-color-accent="{{or .Site.Params.palette.accent "indigo"}}">
+  {{else}}
+  <body dir="{{or .Site.Params.direction "ltr"}}">
+  {{end}}

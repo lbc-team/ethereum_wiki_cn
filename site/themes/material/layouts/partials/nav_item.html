@@ -1,0 +1,61 @@
+
+<!-- Determine class according to level -->
+{{ $nav_item := .Scratch.Get "nav" }}
+{{ $level := .Scratch.Get "nav_level"}}
+{{ $path := .Scratch.Get "nav_path"}}
+{{ $isCurrent := eq .Permalink ($nav_item.URL | absURL | printf "%s") }}
+
+<!-- Main navigation item with nested items -->
+{{with $nav_item}}
+{{ $isActive  :=or ($.IsMenuCurrent "docs"  .) ( $.HasMenuCurrent "docs" .)}}
+{{if .HasChildren}}
+    <li class="md-nav__item {{if $isActive}}md-nav__item--active{{end}}  md-nav__item--nested">
+        <!-- Active checkbox expands items contained within nested section -->
+        <input class="md-toggle md-nav__toggle" data-md-toggle="{{$path}}"
+            type="checkbox" id="{{$path}}" {{if $isActive}}checked{{end}} />
+
+        <!-- Expand active pages -->
+        <label class="md-nav__link" for="{{$path}}">
+            <a href="{{.URL}}" title="{{ .Name}}">{{ .Name }}
+        </label>
+        <nav class="md-nav" data-md-component="collapsible" data-md-level="{{$level}}">
+        <label class="md-nav__title" for="{{$path}}">
+            {{.Name }}
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+            <!-- Render nested item list -->
+            {{ $base := $path }}
+            {{ range $index,$nav :=.Children }}
+                {{$.Scratch.Set "nav" $nav}}
+                {{$.Scratch.Set "nav_level" (add $level 1)}}
+                {{$.Scratch.Set "nav_path" (printf "%s-%d" $base  $index)}}
+                {{partial "nav_item" $}}
+            {{end}}
+        </ul>
+        </nav>
+    </li>
+    <!-- Currently active page -->
+    {{else if $isCurrent}}
+    <li class="md-nav__item md-nav__item--active">
+        <!-- Active checkbox expands items contained within nested section -->
+        <input class="md-toggle md-nav__toggle" data-md-toggle="toc"
+            type="checkbox" id="toc" />
+        <!-- Hack: see partials/toc.html for more information -->
+        <label class="md-nav__link md-nav__link--active" for="toc">
+                {{ .Name }}
+        </label>
+
+        <a href="{{.URL }}" title="{{.Name}}" class="md-nav__link md-nav__link--active">
+        {{.Name }}
+        </a>
+    </li>
+
+    <!-- Main navigation item -->
+    {{else}}
+    <li class="md-nav__item">
+        <a href="{{.URL}}" title="{{ .Name}}"   class="md-nav__link">
+        {{ .Name }}
+        </a>
+    </li>
+    {{end}}
+{{end}}

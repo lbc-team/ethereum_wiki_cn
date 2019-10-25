@@ -1,0 +1,6 @@
+<div class="admonition {{.Get "type" | lower}}"> 
+    <p class="admonition-title">
+        {{if .Get "title"}}{{ .Get "title"  }}
+        {{else}}{{.Get "type" | title}}{{end}}</p>
+    <p>{{ printf "%s" .Inner | markdownify }}</p>
+    </div>

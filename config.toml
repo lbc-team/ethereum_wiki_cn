@@ -1,0 +1,158 @@
+baseurl = "https://ether.mochain.info"
+languageCode = "zh-cn"
+title = "以太坊知识库"
+theme = "material"
+metadataformat = "yaml"
+canonifyurls = true
+enableEmoji = true
+# Set the unicode character used for the "return" link in page footnotes.
+footnotereturnlinkcontents = "↩"
+# When enabled, creates URL on the form /filename.html instead of /filename/.
+uglyURLs = true
+# Enable Google Analytics by entering your tracking id
+googleAnalytics = ""
+
+# 启用rebots
+enableRobotsTXT = false
+
+
+# 调整目录
+dataDir = "./site/data"
+themesDir = "./site/themes"
+layoutDir = "./site/layouts"
+staticDir = ["./site/static"]
+archetypeDir ="./site/archetypes"
+contentDir ="content"
+
+# If the Hugo site is versioned by Git,
+# you will then get a .GitInfo object per page, and
+# Lastmod will get updated by the last commit date for content.
+# see: https://gohugo.io/variables/git/
+enableGitInfo = false
+
+# user pygment and
+pygmentsUseClassic = true
+pygmentsuseclasses = true
+PygmentsCodeFences = true
+pygmentsstyle = "friendly"
+
+[params]
+	# General information
+	author = "虞公"
+	description = "最全面的以太坊中文知识文库"
+	copyright = '深入浅出社区-本站文章采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可'
+
+	# Repository
+	provider = "GitHub"
+	repo_name = "ysqi/ethereum_baike"
+	repo_url = "https://github.com/ysqi/ethereum_baike.git"
+
+	version = "1.0.0"
+	logo = "images/logo.png"
+	icon = ""
+	favicon = ""
+
+	# Permanent link char , Default "¶"
+	permalink = ''
+
+	# Custom assets
+	custom_css = ["main.css"]
+	custom_js  = []
+
+	# Syntax highlighting theme
+	highlight_css  = ""
+
+	# Material supports both, left-to-right (ltr) and right-to-left (rtl) text direction, Default "ltr"
+	direction = ""
+
+	[params.plugins]
+		search = false
+	[params.palette]
+		# red, pink, purple, deep purple, indigo, blue, light-blue, cyan, teal, green, light-green, lime, yellow, amber, orange, deep-orange, brown, grey and blue-grey.
+    	primary = "blue-grey"
+    	accent  = "indigo"
+
+    [params.font]
+		useimage = true
+    	text = "Source Sans Pro,Helvetica Neue,Arial,sans-serif,Noto Sans CJK"
+    	code = "Ubuntu Mono"
+
+	[params.theme.feature]
+		tabs = true
+
+[[menu.docs]]
+    name = "动态"
+	url = "/news.html"
+	identifier ="news"
+	weight = 1
+
+[[menu.docs]]
+    name = "新手入门"
+	url = "/basic.html"
+	identifier ="basic"
+	weight = 10
+
+[[menu.docs]]
+    name = "路线图"
+	# url = "/roadmap.html"
+	identifier ="roadmap"
+	weight = 20
+
+[[menu.docs]]
+    name = "开发者"
+	url = "/dev.html"
+	identifier ="dev"
+	weight = 20
+
+[[menu.docs]]
+    name = "系统架构"
+	url = "/architecture.html"
+	identifier ="architecture"
+	weight = 30
+
+
+[[menu.docs]]
+    name = "生态"
+	url = "/ecology.html"
+	identifier ="ecology"
+	weight = 20
+
+
+[[menu.docs]]
+    name = "以太坊2.0"
+	parent= "architecture"
+	url = "/eth2.html"
+	identifier ="eth2"
+	weight = 30
+
+[[menu.docs]]
+    name = "基础设施"
+	parent= "architecture"
+	url = "/architecture/sheshi.html"
+	identifier ="sheshi"
+	weight = 30
+
+
+[[menu.docs]]
+    name = "治理"
+	url = "/governance.html"
+	identifier="governance"
+	weight = 40
+
+[[menu.docs]]
+    name = "资源导航"
+	url = ""
+	identifier="resource"
+	weight = 40
+
+[[menu.docs]]
+    name = "关于"
+	url = "/about.html"
+	identifier="about"
+	weight = 9000
+
+[blackfriday]
+	smartypants	= true
+	fractions = true
+	smartDashes = true
+	plainIDAnchors = true

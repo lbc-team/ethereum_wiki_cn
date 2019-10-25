@@ -1,0 +1,32 @@
+{{ partial "head" . }} {{ partial "bar" . }}
+<!-- Application header -->
+<header class="md-header" data-md-component="header">
+	{{ partial "header" . }}
+</header>
+<!-- Container, necessary for web-application context -->
+<div class="md-container">
+	{{ partial "hero" . }} {{ partial "tab" . }}
+	<main class="md-main">
+		<div class="md-main__inner md-grid" data-md-component="container">
+			<div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+				<div class="md-sidebar__scrollwrap">
+					<div class="md-sidebar__inner">
+						{{ partial "nav" . }}
+					</div>
+				</div>
+			</div>
+			<div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+				<div class="md-sidebar__scrollwrap">
+					<div class="md-sidebar__inner">
+						{{ partial "toc" . }}
+					</div>
+				</div>
+			</div>
+			<div class="md-content">
+				{{ partial "body" . }} 
+			</div>
+		</div>
+	</main>
+	{{ partial "footer" . }}
+</div>
+{{ partial "footer_js" . }}

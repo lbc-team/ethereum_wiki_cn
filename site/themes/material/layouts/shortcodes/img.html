@@ -1,0 +1,5 @@
+{{$width := .Get "width"}}
+{{$height := .Get "height"}}
+<div align="center" class="align-center">
+    <img alt='{{.Get "alt"}}' src='{{.Get "src"}}' {{with $width}}width="{{.}}"{{end}} {{with $height}}height="{{.}}"{{end}} >
+</div>

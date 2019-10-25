@@ -1,0 +1,90 @@
+/* 底部备注字体不需要同文章内容大小 */
+.footnotes,.footcommits{font-size: 1rem;}
+.footcommits,.footcommits a{ 
+    color: #8a8a8a;
+}
+
+
+.md-typeset img {
+    max-width: 100%;
+    text-indent: 0;
+}
+
+.bg-llight {
+    background-color: #f2f2f5;
+}
+.bg-white {
+    background-color: #fff;
+}
+ 
+.post {
+    padding: 1.2em 2em; 
+}
+.post p img{
+    margin-left: auto; 
+    margin-right:auto; 
+    display:block;
+}
+@media only screen and (max-width: 44.9375em) {
+    .post {
+        padding: 1.2em 0.2em; 
+    }
+    .post-meta{
+        display: none;
+    }
+}
+.post .post-header {
+    margin-bottom: 20px;
+    text-align: center;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #d3d3d3
+}
+
+.post .post-header .post-title {
+    margin: 0;
+    font-size: 1.8em;
+    font-weight: 400
+}
+
+.post .post-header .post-link {
+    display: inline-block;
+    position: relative;
+    color: black;
+}
+
+.post .post-header .post-link:before {
+    position: absolute;
+    left: 51%;
+    right: 51%
+}
+
+.post .post-header .post-meta .more-meta:before,.post .post-header .post-meta .post-category a:before {
+    content: "\B7"
+}
+
+.post .post-header .post-link.active:before,.post .post-header .post-link:active:before,.post .post-header .post-link:focus:before,.post .post-header .post-link:hover:before {
+    right: 0;
+    left: 0
+}
+
+.post .post-header .post-meta {
+    font-size: 14px;
+    color: #8a8a8a;
+    text-align: right;
+}
+
+.post .post-header .post-meta .post-time {
+    font-size: 15px
+}
+
+.post .post-header .post-meta .post-category {
+    display: inline
+}
+
+.post .post-header .post-meta .post-category a {
+    color: inherit
+}
+
+.post .post-header .post-meta .post-category a:hover {
+    color: #c05b4d
+}

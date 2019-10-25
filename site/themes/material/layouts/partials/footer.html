@@ -1,0 +1,76 @@
+
+<!-- Application footer -->
+<footer class="md-footer">
+  <!-- Link to previous and/or next page -->
+  {{ if .Prev | or .Next }}
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+
+        <!-- Link to previous page -->
+        {{ if .Prev}} 
+          <a href="{{ .Prev.Permalink }}"
+              title="{{ .Prev.Title }}"
+              class="md-flex md-footer-nav__link md-footer-nav__link--prev"
+              rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back
+                    md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch
+                  md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">previous</span>
+                {{ .Prev.Title}}
+              </span>
+            </div>
+          </a>
+        {{end}}
+
+        <!-- Link to next page -->
+        {{if .Next}}
+          <a href="{{ .Next.Permalink }}" title="{{ .Next.Title }}"
+              class="md-flex md-footer-nav__link md-footer-nav__link--next"
+              rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch
+                  md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">next</span>
+                {{ .Next.Title }}
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward
+                    md-footer-nav__button"></i>
+            </div>
+          </a>
+        {{end}}
+      </nav>
+    </div>
+  {{end}}
+
+  <!-- Further information -->
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+ 
+      <!-- Copyright and theme information -->
+      <div class="md-footer-copyright">
+        {{ with .Site.Params.copyright }}
+          <div class="md-footer-copyright__highlight" style="color:hsla(0,0%,100%,.3);">
+            &copy; {{ now.Format "2006" }} {{ . | safeHTML}}
+          </div>
+        {{end}}
+        powered by
+        <a href="https://gohugo.io/"  rel="nofollow" >Hugo</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/"  rel="nofollow">
+          Material for Hugo</a>
+        ，<a href="/about.html"   rel="nofollow">关于我们</a>
+      </div>
+
+      <!-- Social links --> 
+        {{ partial  "social" .}} 
+    </div>
+  </div>
+</footer>
+
+ 
