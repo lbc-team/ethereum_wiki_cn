@@ -15,9 +15,10 @@
     {{if not .IsHome}}
     <!-- 列表页显示 -->
     <div>
+        <h2>文章列表</h2>
         {{if .Data.Pages}}
         <ul>
-            {{ range .Data.Pages }}
+            {{ range .Data.Pages.ByWeight }}
                 <li>
                     <a href="{{.Permalink}}"> {{.Title}}</a>
                 </li>

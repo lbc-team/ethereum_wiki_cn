@@ -5,7 +5,7 @@ weight: 9999
 menu:
     docs:
       name: "EVM"
-      parent: "basic"
+      parent: "dev"
 ---
 
 
