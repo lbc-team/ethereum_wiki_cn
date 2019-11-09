@@ -1,7 +1,6 @@
 
 
-[![Build Status](https://travis-ci.org/mochain/ethereumhelp.svg?branch=master)](https://travis-ci.org/mochain/ethereumhelp)
-[![Telegram Group](https://img.shields.io/badge/Telegram-Group-blue.svg)](https://t.me/mochainer)
+[![Build Status](https://travis-ci.org/lbc-team/ethereum_baike.svg?branch=master)](https://travis-ci.org/lbc-team/ethereum_baike)
 
 
 # 以太坊中文资源库

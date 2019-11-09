@@ -44,8 +44,8 @@ pygmentsstyle = "friendly"
 
 	# Repository
 	provider = "GitHub"
-	repo_name = "ysqi/ethereum_baike"
-	repo_url = "https://github.com/ysqi/ethereum_baike.git"
+	repo_name = "lbc-team/ethereum_baike"
+	repo_url = "https://github.com/lbc-team/ethereum_baike.git"
 
 	version = "1.0.0"
 	logo = "images/logo.png"

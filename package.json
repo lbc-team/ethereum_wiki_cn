@@ -1,20 +1,20 @@
 {
-  "name": "ethereum baike",
+  "name": "EthereumBaike",
   "version": "1.0.0",
   "description": "ethereum baike document build",
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ysqi/etheraction.git"
+    "url": "git+https://github.com/lbc-team/ethereum_baike.git"
   },
   "keywords": [
     "demo"
   ],
   "author": "ysqi",
   "bugs": {
-    "url": "hhttps://github.com/ysqi/etheraction/issues"
+    "url": "hhttps://github.com/lbc-team/ethereum_baike/issues"
   },
-  "homepage": "hhttps://github.com/ysqi/etheraction#readme",
+  "homepage": "hhttps://github.com/lbc-team/ethereum_baike#readme",
   "scripts": {
     "test": "grunt test"
   },
