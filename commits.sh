@@ -25,13 +25,13 @@ function readfile ()
         message:
             %s
 ' --name-only --no-merges  "$filepath" | grep -v '^$' |grep -Ev "\.md" >> "$COMMITSFILE" || true
-    
+
     fi
   done
 }
 #函数定义结束，这里用来运行函数
 folder="./content"
-COMMITSFILE="./data/commits.yaml"
-mkdir -p "./data"
+COMMITSFILE="./site/data/commits.yaml"
+mkdir -p "./site/data"
 echo "# auto gen" > "$COMMITSFILE"
-readfile $folder 
+readfile $folder

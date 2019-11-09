@@ -1,11 +1,11 @@
 'use strict';
 
 module.exports = function (grunt) {
+    require('time-grunt')(grunt);
 
     grunt.loadNpmTasks('grunt-contrib-clean');
-    grunt.loadNpmTasks('grunt-gh-pages');
     grunt.loadNpmTasks('grunt-contrib-htmlmin');
-    grunt.loadNpmTasks('grunt-contrib-cssmin'); 
+    grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-exec');
 
     var SOURCE_DIR = 'public'
@@ -17,11 +17,23 @@ module.exports = function (grunt) {
             deploy: [SOURCE_DIR + '/**/*']
         },
         exec: {
-            genCommits:{
-                cmd:"/bin/bash commits.sh" // Ubuntu下默认使用dash代替/bin/sh,所以强制使用/bin/bash
-            },
             buildContent: {
                 cmd: "hugo -v",
+            },
+            // 部署代码到又拍云
+            upxdeploy:{
+                cmd:function(){
+                    //防止错误，不得为空
+                    var storagepath=process.env.UPX_PATH;
+                    if (!storagepath || storagepath===""){
+                        return 'echo "empty path " && exit 1';
+                    }
+                    //将多个内容拼接到多条命令执行
+                    return [
+                        ['upx','login',process.env.UPX_BUCKET,process.env.UPX_OP,process.env.UPX_PWD].join(" "),
+                        ['upx','-q','sync','-w 10',SOURCE_DIR,storagepath].join(" ")
+                    ].join('&&');
+                },
             }
         },
         htmlmin: {                                          // Task
@@ -42,7 +54,7 @@ module.exports = function (grunt) {
         },
         cssmin: {
             options: {
-                keepSpecialComments: 0, 
+                keepSpecialComments: 0,
             },
             target: {
                  files: [
@@ -52,32 +64,6 @@ module.exports = function (grunt) {
                         src: ['**/*.css'], // Actual pattern(s) to match.
                         dest: SOURCE_DIR,   // Destination path prefix.
                     }],
-            }
-        },
-        'gh-pages': {
-            options: {
-                branch: process.env.DEPLOY_BRANCH,
-                base: SOURCE_DIR,
-            },
-            publish: {
-                options: {
-                    repo: 'https://' + process.env.REPO,
-                    message: 'publish gh-pages (cli)'
-                },
-                src: ['**/*']
-            },
-            deploy: {
-                options: {
-                    user: {
-                        name: process.env.USER,
-                        email: process.env.EMAIL,
-                    },
-                    repo: 'https://' + process.env.GH_TOKEN + '@' + process.env.REPO,
-                    message: '[ci skip] deploy from ' + process.env.USER + ' by travis' + getDeployMessage(),
-                    //With silent true log messages are suppressed and error messages are sanitized.
-                    silent: false
-                },
-                src: ['**/*']
             }
         }
     });
@@ -101,12 +87,11 @@ module.exports = function (grunt) {
     grunt.registerTask('check-deploy', function () {
         // need this
         this.requires(['build']);
-
         // only deploy under these conditions
         if (process.env.TRAVIS === 'true' && process.env.TRAVIS_SECURE_ENV_VARS === 'true' && process.env.TRAVIS_PULL_REQUEST === 'false') {
             grunt.log.writeln('executing deployment');
             // queue deploy
-            grunt.task.run('gh-pages:deploy');
+            grunt.task.run('exec:upxdeploy');
         }
         else {
             grunt.log.writeln('skipped deployment');
@@ -114,12 +99,11 @@ module.exports = function (grunt) {
     });
 
     grunt.registerTask('prep', 'Clean-up project', [
-        'clean', 
+        'clean',
     ]);
 
     grunt.registerTask('build', 'Rebuild locally', [
         'prep',
-        'exec:genCommits',
         "exec:buildContent",
         'htmlmin:dist',
         'cssmin'
@@ -132,7 +116,7 @@ module.exports = function (grunt) {
 
     grunt.registerTask('deploy', 'Publish from Travis', [
         'build',
-        'check-deploy'
+        'check-deploy',
     ]);
 
     // per convention set a test task

@@ -28,7 +28,7 @@ contentDir ="content"
 # you will then get a .GitInfo object per page, and
 # Lastmod will get updated by the last commit date for content.
 # see: https://gohugo.io/variables/git/
-enableGitInfo = false
+enableGitInfo = true
 
 # user pygment and
 pygmentsUseClassic = true
