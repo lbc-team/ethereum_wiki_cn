@@ -11,6 +11,9 @@
             <span class="post-time">更新时间：{{.Lastmod.Format "2006-01-02 15:04:05"}}</span>
         </div>
     </header>
+
+
+
     {{ (replace .Content "<div class=\"highlight\"" "<div class=\"codehilite\"") | safeHTML }}
     {{if not .IsHome}}
     <!-- 列表页显示 -->

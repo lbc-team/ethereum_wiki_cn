@@ -1,13 +1,16 @@
-{{ $class := "md-tabs md-tabs--active" }} 
+{{ $class := "md-tabs md-tabs--active" }}
 
 <nav class="{{ $class }}" data-md-component="tabs">
   <div class="md-tabs__inner md-grid">
     <ul class="md-tabs__list">
 {{ range $index, $nav := $.Site.Menus.docs.ByWeight }}
     {{$.Scratch.Set "nav_level" 1}}
-    {{$.Scratch.Set "nav" $nav}} 
+    {{$.Scratch.Set "nav" $nav}}
     {{partial "tab_item" $}}
-{{end}}    
+    {{if eq $nav.Name "next"}}
+      ==={{$nav}}
+    {{end}}
+{{end}}
     </ul>
   </div>
 </nav>

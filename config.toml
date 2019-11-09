@@ -1,4 +1,4 @@
-baseurl = "https://ether.mochain.info"
+baseurl = "https://learnblockchain.cn/eth"
 languageCode = "zh-cn"
 title = "以太坊知识库"
 theme = "material"
@@ -13,7 +13,7 @@ uglyURLs = true
 googleAnalytics = ""
 
 # 启用rebots
-enableRobotsTXT = false
+enableRobotsTXT = true
 
 
 # 调整目录
@@ -49,7 +49,7 @@ pygmentsstyle = "friendly"
 
 	version = "1.0.0"
 	logo = "images/logo.png"
-	icon = ""
+	# icon = ""
 	favicon = ""
 
 	# Permanent link char , Default "¶"
@@ -69,8 +69,8 @@ pygmentsstyle = "friendly"
 		search = false
 	[params.palette]
 		# red, pink, purple, deep purple, indigo, blue, light-blue, cyan, teal, green, light-green, lime, yellow, amber, orange, deep-orange, brown, grey and blue-grey.
-    	primary = "blue-grey"
-    	accent  = "indigo"
+    	primary = "indigo"
+    	accent  = "blue"
 
     [params.font]
 		useimage = true
@@ -81,7 +81,7 @@ pygmentsstyle = "friendly"
 		tabs = true
 
 [[menu.docs]]
-    name = "动态"
+    name = "以太坊动态"
 	url = "/news.html"
 	identifier ="news"
 	weight = 1
@@ -93,26 +93,26 @@ pygmentsstyle = "friendly"
 	weight = 10
 
 [[menu.docs]]
-    name = "路线图"
+    name = "以太坊路线图"
 	url = "/roadmap.html"
 	identifier ="roadmap"
 	weight = 20
 
 [[menu.docs]]
-    name = "开发者"
+    name = "以太坊开发者"
 	url = "/dev.html"
 	identifier ="dev"
 	weight = 20
 
 [[menu.docs]]
-    name = "系统架构"
+    name = "以太坊系统架构"
 	url = "/architecture.html"
 	identifier ="architecture"
 	weight = 30
 
 
 [[menu.docs]]
-    name = "生态"
+    name = "以太坊生态"
 	url = "/ecology.html"
 	identifier ="ecology"
 	weight = 20
@@ -134,15 +134,9 @@ pygmentsstyle = "friendly"
 
 
 [[menu.docs]]
-    name = "治理"
+    name = "以太坊治理"
 	url = "/governance.html"
 	identifier="governance"
-	weight = 40
-
-[[menu.docs]]
-    name = "资源导航"
-	url = ""
-	identifier="resource"
 	weight = 40
 
 [[menu.docs]]
