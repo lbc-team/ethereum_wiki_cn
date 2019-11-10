@@ -1,6 +1,6 @@
 
 
-[![Build Status](https://travis-ci.org/lbc-team/ethereum_baike.svg?branch=master)](https://travis-ci.org/lbc-team/ethereum_baike)
+[![Build Status](https://travis-ci.org/lbc-team/ethereum_wiki_cn.svg?branch=master)](https://travis-ci.org/lbc-team/ethereum_wiki_cn)
 
 
 # 以太坊中文资源库

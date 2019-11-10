@@ -5,16 +5,16 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/lbc-team/ethereum_baike.git"
+    "url": "git+https://github.com/lbc-team/ethereum_wiki_cn.git"
   },
   "keywords": [
     "demo"
   ],
   "author": "ysqi",
   "bugs": {
-    "url": "hhttps://github.com/lbc-team/ethereum_baike/issues"
+    "url": "hhttps://github.com/lbc-team/ethereum_wiki_cn/issues"
   },
-  "homepage": "hhttps://github.com/lbc-team/ethereum_baike#readme",
+  "homepage": "hhttps://github.com/lbc-team/ethereum_wiki_cn#readme",
   "scripts": {
     "test": "grunt test"
   },

@@ -38,15 +38,14 @@ pygmentsstyle = "friendly"
 
 [params]
 	# General information
-	author = "虞公"
+	author = "虞双齐"
 	description = "最全面的以太坊中文知识文库"
 	copyright = '深入浅出社区-本站文章采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可'
 
 	# Repository
 	provider = "GitHub"
-	repo_name = "lbc-team/ethereum_baike"
-	repo_url = "https://github.com/lbc-team/ethereum_baike.git"
-
+	repo_name = "lbc-team/ethereum_wiki_cn"
+	repo_url = "https://github.com/lbc-team/ethereum_wiki_cn.git"
 	version = "1.0.0"
 	logo = "images/logo.png"
 	# icon = ""
