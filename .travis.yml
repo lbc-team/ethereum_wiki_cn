@@ -23,6 +23,6 @@ before_deploy:
 deploy:
 - provider: script
   skip_cleanup: true
-  script: grunt build
+  script: grunt deploy
   on:
     branch: master
