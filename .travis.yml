@@ -19,11 +19,10 @@ install:
 before_deploy:
 - chmod +x commits.sh
 - bash commits.sh
-- grunt build
 
 deploy:
 - provider: script
   skip_cleanup: true
-  script: grunt check-deploy
+  script: grunt build
   on:
     branch: master
