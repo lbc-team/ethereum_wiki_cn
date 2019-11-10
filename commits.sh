@@ -1,6 +1,6 @@
 #!/bin/bash
 
-function readfile ()
+function readfile()
 {
 #这里`为esc下面的按键符号
   for file in `ls $1`
