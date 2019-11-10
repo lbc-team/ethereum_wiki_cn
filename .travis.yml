@@ -10,8 +10,12 @@ before_install:
 # 安装编译依赖
 - sudo pip install Pygments
 - sudo pip install pygments-lexer-solidity
+- mkdir $PWD/work
+- export PATH=$PATH:$PWD/work/
 install:
-- mkdir work
+- wget http://collection.b0.upaiyun.com/softwares/upx/upx-linux-amd64-v0.2.3
+  -O $PWD/work/upx
+- chmod +x $PWD/work/upx
 - wget https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_Linux-64bit.deb
   -O $PWD/work/hugo.deb
 - sudo dpkg -i $PWD/work/hugo.deb
