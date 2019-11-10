@@ -79,6 +79,11 @@ pygmentsstyle = "friendly"
 	[params.theme.feature]
 		tabs = true
 
+	# cnzz
+	[params.cnzz]
+		enable=true #是否开启cnzz统计
+		appid="1265946080"
+
 [[menu.docs]]
     name = "以太坊动态"
 	url = "/news.html"
