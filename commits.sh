@@ -1,7 +1,6 @@
 #!/bin/bash
 
-function readfile()
-{
+function readfile(){
 #这里`为esc下面的按键符号
   for file in `ls $1`
   do
@@ -12,7 +11,7 @@ function readfile()
         readfile $1"/"$file
     else
         #否则就能够读取该文件的地址
-        filepath=$1"/"$file
+        filepath="$1/$file"
         # 生成 yaml 格式的commit信息到指定文件
         echo "$filepath:" >> "$COMMITSFILE"
         git log --follow --pretty=format:'

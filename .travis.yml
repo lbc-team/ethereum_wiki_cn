@@ -18,7 +18,7 @@ install:
 - npm install
 before_deploy:
 - chmod +x commits.sh
-- sh commits.sh
+- bash commits.sh
 - grunt build
 
 deploy:
