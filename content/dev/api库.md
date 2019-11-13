@@ -90,3 +90,43 @@ menu:
 - [One Click dApp](https://oneclickdapp.com/) - 基于ABI即时创建一个DApp并提供访问URL
 - [Truffle Pig](https://www.npmjs.com/package/trufflepig) - 一个用于查找和读取Truffle生成的合约构件的开发工具，提供简单的HTTP API。 用于本地开发，通过http提供合约ABI
 - [Ethereum Contract Service](https://github.com/mesg-foundation/service-ethereum-contract) - 一个MESG服务，用于访问以太坊合约
+
+
+
+## 区块链开发 API 大全
+
+作为一个区块链应用开发者，除了可以利用本地节点的API实现你想要的特性， 还可以借助众多的云端开放API来简化实现或者增强功能。下表为区块链与数字 加密货币领域的开放API：
+
+| API                                                          | 说明                                          | 身份认证 | HTTPS | CORS   |
+| :----------------------------------------------------------- | :-------------------------------------------- | :------- | :---- | :----- |
+| [Binance](https://github.com/binance-exchange/binance-official-api-docs) | 币安交易所API                                 | apiKey | 是    |        |
+| [BitcoinAverage](https://apiv2.bitcoinaverage.com/)          | 区块链数字资产的价格信息API                   | apiKey | 是    |        |
+| [BitcoinCharts](https://bitcoincharts.com/about/exchanges/)  | 比特币网络相关的财经与技术数据API             |          | 是    |        |
+| [Bitfinex](https://docs.bitfinex.com/docs/introduction)      | bitfinex加密货币交易平台API                   | apiKey | 是    |        |
+| [Bitmex](https://www.bitmex.com/app/apiOverview)             | 实时加密货币衍生品交易平台API                 | apiKey | 是    |        |
+| [Bittrex](https://bittrex.com/Home/Api)                      | 下一代加密货币交易平台API                     | apiKey | 是    |        |
+| [Block](https://www.block.io/docs/basic)                     | 比特币支付、钱包和交易数据API                 | apiKey | 是    |        |
+| [Blockchain](https://www.blockchain.info/api)                | 比特币支付、钱包和交易数据API                 |          | 是    |        |
+| [Chasing Coin](https://chasing-coins.com/api)                | 数字加密货币、代币数据API                     |          | 是    |        |
+| [CoinAPI](https://docs.coinapi.io/)                          | 数字货币交易所和数字资产信息API               | apiKey | 是    | 不支持 |
+| [Coinbase](https://developers.coinbase.com/)                 | 比特币、比特币现金、莱特币和以太坊价格信息API | apiKey | 是    |        |
+| [Coinbase Pro](https://docs.pro.coinbase.com/#api)           | 数字加密币交易平台API                         | apiKey | 是    |        |
+| [CoinBin](https://coinbin.org/)                              | 虚拟货币信息API                               |          | 是    |        |
+| [CoinDesk](http://www.coindesk.com/api/)                     | 比特币价格指数API                             |          |       |        |
+| [Coinigy](https://coinigy.docs.apiary.io/)                   | Coinigy交易所及账户API                        | apiKey | 是    |        |
+| [CoinLayer](https://coinlayer.com/)                          | 数字加密货币实时汇率API                       | apiKey | 是    |        |
+| [Coinlore](https://www.coinlore.com/cryptocurrency-data-api) | 数字加密货币价格、流量等信息API               |          | 是    |        |
+| [CoinMarketCap](https://coinmarketcap.com/api/)              | 数字加密货币价格API                           |          | 是    |        |
+| [Coinpaprika](https://api.coinpaprika.com/)                  | 数字加密货币价格、流量等信息API               |          | 是    | 支持   |
+| [CoinRanking](https://docs.coinranking.com/)                 | 实时数字加密货币信息API                       |          | 是    |        |
+| [CryptoCompare](https://www.cryptocompare.com/api#)          | 数字加密货币比较API                           |          | 是    |        |
+| [Cryptonator](https://www.cryptonator.com/api/)              | 数字加密货币汇率API                           |          | 是    |        |
+| [Gemini](https://docs.gemini.com/rest-api/)                  | Gemini交易所API                               |          | 是    |        |
+| [ICObench](https://icobench.com/developers)                  | 数字加密货币首次上市、评级、统计等信息API     | apiKey | 是    |        |
+| [Livecoin](https://www.livecoin.net/api)                     | 交易所API                                     |          | 是    |        |
+| [MercadoBitcoin](https://www.mercadobitcoin.net/api-doc/)    | 巴西的交易所信息API                           |          | 是    |        |
+| [Nexchange](https://nexchange2.docs.apiary.io/)              | 数字加密货币自动兑换API                       |          |       | 支持   |
+| [NiceHash](https://www.nicehash.com/doc-api)                 | 最大的加密货币矿场API                         | apiKey | 是    |        |
+| [Poloniex](https://poloniex.com/support/api/)                | 数字资产交易所API                             | apiKey | 是    |        |
+| [WorldCoinIndex](https://www.worldcoinindex.com/apiservice)  | 数字加密货币价格信息API                       | apiKey | 是    |        |
+| [Zloader](https://www.zloadr.com/cryptocurrency-developers.php) | 尽职调查数据平台API                           |          |       |        |
