@@ -35,6 +35,10 @@ menu:
 
        基于浏览器的 IDE， 集成了基于浏览器的虚拟机以及 Metamask ，可以一键部署到主网和测试网。
 
+   -  [Ethereum Studio](https://studio.ethereum.org/):
+    
+      以太坊基金会正式推出基于网页的集成开发环境（IDE） Ethereum Studio。Ethereum Studio 的目标是让开发人员在几分钟之内就可以基于以太坊进行开发，尽可能减少开发中的阻力，用户可以通过Ethereum Studio进行这些工作：在浏览器中开发和测试智能合约、将智能合约连接至前端网页应用、通过三个模版教程引导他们的应用、一键分享项目。 
+
 - Visual Studio Code:
 
    - [Visual Studio Code extension](http://juan.blanco.ws/solidity-contracts-in-visual-studio-code/)
