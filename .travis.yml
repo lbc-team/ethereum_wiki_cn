@@ -7,7 +7,7 @@ branches:
   only:
   - master
 before_install:
-- openssl aes-256-cbc -K $encrypted_f65a4f4f1ef2_key -iv $encrypted_f65a4f4f1ef2_iv
+- openssl aes-256-cbc -K $encrypted_10c6a493b743_key -iv $encrypted_10c6a493b743_iv
   -in deploy_key.enc -out ./deploy_key -d
 - eval "$(ssh-agent -s)"
 - chmod 600 ./deploy_key
